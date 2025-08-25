@@ -1,14 +1,19 @@
 name: Update README Progress
+
 on:
   push:
   issues:
     types: [opened, closed, reopened]
   workflow_dispatch:
+
 jobs:
   update-progress:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Fetch Milestone Progress
         id: milestone
         uses: actions/github-script@v6
@@ -19,17 +24,32 @@ jobs:
               repo: context.repo.repo,
               milestone_number: 1 // Replace with your milestone number
             });
+            
             const totalIssues = milestone.data.open_issues + milestone.data.closed_issues;
             const percentage = totalIssues > 0 ? Math.round((milestone.data.closed_issues / totalIssues) * 100) : 0;
-            return { percentage };
+            
+            console.log(`Total issues: ${totalIssues}, Closed: ${milestone.data.closed_issues}, Percentage: ${percentage}%`);
+            core.setOutput('percentage', percentage);
+            
       - name: Update README
         run: |
-          badge_url="https://img.shields.io/badge/Progress-${{ steps.milestone.outputs.result.percentage }}%25-green"
-          sed -i 's|!\[Progress\](.*)|![Progress]('$badge_url')|' README.md
+          PERCENTAGE="${{ steps.milestone.outputs.percentage }}"
+          badge_url="https://img.shields.io/badge/Progress-${PERCENTAGE}%25-green"
+          
+          # Update the README
+          sed -i "s|!\[Progress\](.*)|![Progress](${badge_url})|" README.md
+          
+          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "Update progress badge" || echo "No changes to commit"
-          git push
+          
+          # Check if there are changes
+          if git diff --quiet README.md; then
+            echo "No changes to commit"
+          else
+            git add README.md
+            git commit -m "Update progress badge to ${PERCENTAGE}%"
+            git push
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
