@@ -33,7 +33,7 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 ### **Milestone 1: Lizard X-rays**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
+![Progress](https://img.shields.io/badge/Progress-60%25-green)
 
 </div>
 
@@ -61,7 +61,7 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 ### **Milestone 2: Lizard Classification**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
+![Progress](https://img.shields.io/badge/Progress-60%25-green)
 
 </div>
 
@@ -91,7 +91,7 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 ### **Milestone 3: Lizard Toepads**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
+![Progress](https://img.shields.io/badge/Progress-60%25-green)
 
 </div>
 
@@ -119,7 +119,7 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 ### **Milestone 4: 3D Coloring**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
+![Progress](https://img.shields.io/badge/Progress-60%25-green)
 
 </div>
 
