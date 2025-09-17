@@ -14,6 +14,14 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv not installed, skip loading .env file
+    pass
+
 
 @dataclass
 class ProjectConfig:
@@ -219,13 +227,13 @@ class ProgressBot:
             "type": "header",
             "text": {
                 "type": "plain_text",
-                "text": f"{project.emoji} {project.name}",
+                "text": f"{project.name}",
                 "emoji": True
             }
         }
         
         # Progress section
-        state_text = "🔴 Closed" if milestone_data.get('state') == 'closed' else "🟢 Open"
+        state_text = "Closed" if milestone_data.get('state') == 'closed' else "Open"
         
         progress_section = {
             "type": "section",
@@ -236,7 +244,7 @@ class ProgressBot:
                 },
                 {
                     "type": "mrkdwn", 
-                    "text": f"*Status:* {status_emoji} {progress_percentage:.1f}% Complete"
+                    "text": f"*Status:* {progress_percentage:.1f}% Complete"
                 },
                 {
                     "type": "mrkdwn",
@@ -268,7 +276,7 @@ class ProgressBot:
             info_text += f"📅 *Due Date:* {due_date.strftime('%B %d, %Y')}\n"
         
         updated_at = datetime.fromisoformat(milestone_data['updated_at'].replace('Z', '+00:00'))
-        info_text += f"🔄 *Last Updated:* {updated_at.strftime('%B %d, %Y at %I:%M %p')}"
+        info_text += f"*Last Updated:* {updated_at.strftime('%B %d, %Y at %I:%M %p')}"
         
         info_section = {
             "type": "section",
@@ -331,7 +339,7 @@ class ProgressBot:
             "type": "header",
             "text": {
                 "type": "plain_text",
-                "text": "📊 Milestone Summary",
+                "text": "Milestone Summary",
                 "emoji": True
             }
         }
@@ -487,7 +495,7 @@ def main():
     
     # Get tokens from environment variables
     BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
-    SLACK_MEMBER_ID = os.getenv('SLACK_MEMBER_ID')
+    SLACK_USER_ID = os.getenv('SLACK_USER_ID')
     
     # Validate all required environment variables
     github_token = os.getenv('GITHUB_TOKEN')
@@ -501,16 +509,16 @@ def main():
         print("Please set: export SLACK_BOT_TOKEN='your_slack_bot_token_here'")
         return
     
-    if not SLACK_MEMBER_ID:
-        print("❌ Missing SLACK_MEMBER_ID environment variable")
-        print("Please set: export SLACK_MEMBER_ID='your_slack_member_id_here'")
+    if not SLACK_USER_ID:
+        print("❌ Missing SLACK_USER_ID environment variable")
+        print("Please set: export SLACK_USER_ID='your_SLACK_USER_ID_here'")
         return
     
     # Initialize the bot
     bot = ProgressBot(
         slack_token=BOT_TOKEN,
         github_token=github_token,
-        user_id=SLACK_MEMBER_ID
+        user_id=SLACK_USER_ID
     )
     
     # Check command line arguments or run test
