@@ -33,15 +33,15 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 ### **Milestone 1: Lizard X-rays**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-60%25-green)
+![Progress](https://img.shields.io/badge/Progress-60%25-yellow)
 
 </div>
 
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
+**Status:** In Progress
+**Issues:** 3/5 completed
+**Timeline:** TBD
 
-> X-ray imaging and analysis of lizard specimens for research purposes.
+> Research milestone focusing on lizard x-rays.
 
 <details>
 <summary><strong>View Details</strong></summary>
@@ -53,53 +53,23 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 
 </details>
 
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/1) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+X-rays%22)
+[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/1) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard%20X-rays%22)
 
 </td>
-<td width="50%" valign="top">
-
-### **Milestone 2: Lizard Classification**
-<div align="center">
-
-![Progress](https://img.shields.io/badge/Progress-60%25-green)
-
-</div>
-
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
-
-> Taxonomic classification and species identification of lizard specimens.
-
-<details>
-<summary><strong>View Details</strong></summary>
-
-- [ ] Species identification protocols
-- [ ] Morphological measurements
-- [ ] Database development
-- [ ] Classification algorithms
-
-</details>
-
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/2) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+Classification%22)
-
-</td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### **Milestone 3: Lizard Toepads**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-60%25-green)
+![Progress](https://img.shields.io/badge/Progress-0%25-red)
 
 </div>
 
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
+**Status:** Not Started
+**Issues:** 0/0 completed
+**Timeline:** TBD
 
-> Analysis of lizard toepad morphology and adhesive capabilities.
+> Research milestone focusing on lizard toepads.
 
 <details>
 <summary><strong>View Details</strong></summary>
@@ -111,23 +81,25 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 
 </details>
 
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/3) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+Toepads%22)
+[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/3) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard%20Toepads%22)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### **Milestone 4: 3D Coloring**
 <div align="center">
 
-![Progress](https://img.shields.io/badge/Progress-60%25-green)
+![Progress](https://img.shields.io/badge/Progress-0%25-red)
 
 </div>
 
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
+**Status:** Not Started
+**Issues:** 0/0 completed
+**Timeline:** TBD
 
-> Three-dimensional color pattern analysis and visualization of lizard specimens.
+> Research milestone focusing on 3d coloring.
 
 <details>
 <summary><strong>View Details</strong></summary>
@@ -139,7 +111,35 @@ This project encompasses multiple aspects of lizard research including X-ray ima
 
 </details>
 
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/4) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%223D+Coloring%22)
+[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/4) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%223D%20Coloring%22)
+
+</td>
+<td width="50%" valign="top">
+
+### **Milestone 2: Lizard Classifications**
+<div align="center">
+
+![Progress](https://img.shields.io/badge/Progress-10%25-red)
+
+</div>
+
+**Status:** In Progress
+**Issues:** 1/10 completed
+**Timeline:** TBD
+
+> Research milestone focusing on lizard classifications.
+
+<details>
+<summary><strong>View Details</strong></summary>
+
+- [ ] Species identification protocols
+- [ ] Morphological measurements
+- [ ] Database development
+- [ ] Classification algorithms
+
+</details>
+
+[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/2) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard%20Classifications%22)
 
 </td>
 </tr>
