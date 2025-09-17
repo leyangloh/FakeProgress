@@ -47,7 +47,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_MEMBER_ID: ${{ secrets.SLACK_MEMBER_ID }}
+          SLACK_USER_ID: ${{ secrets.SLACK_USER_ID }}
         run: |
           echo "🔍 Validating environment variables..."
           
@@ -62,9 +62,9 @@ jobs:
             exit 1
           fi
           
-          if [ -z "$SLACK_MEMBER_ID" ]; then
-            echo "❌ SLACK_MEMBER_ID secret is not configured" 
-            echo "💡 Please add SLACK_MEMBER_ID to repository secrets"
+          if [ -z "$SLACK_USER_ID" ]; then
+            echo "❌ SLACK_USER_ID secret is not configured" 
+            echo "💡 Please add SLACK_USER_ID to repository secrets"
             exit 1
           fi
           
@@ -75,7 +75,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_MEMBER_ID: ${{ secrets.SLACK_MEMBER_ID }}
+          SLACK_USER_ID: ${{ secrets.SLACK_USER_ID }}
         run: |
           echo "🤖 Starting Human Augmented Analytics Group Progress Bot..."
           echo "📊 Repository: ${{ github.repository }}"
