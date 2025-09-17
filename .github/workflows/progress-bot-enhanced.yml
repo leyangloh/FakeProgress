@@ -1,0 +1,119 @@
+name: Enhanced Progress Bot
+
+on:
+  push:
+    branches: [ main ]
+  issues:
+    types: [opened, closed, reopened, milestoned, demilestoned]
+  milestone:
+    types: [created, edited, deleted, closed, opened]
+  schedule:
+    - cron: '0 9 * * 1'    # Weekly on Monday 9 AM UTC
+    - cron: '0 17 * * 5'   # Weekly on Friday 5 PM UTC
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  run-progress-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "⚠️ No requirements.txt found, installing basic dependencies"
+            pip install requests
+          fi
+          
+      - name: Validate environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_MEMBER_ID: ${{ secrets.SLACK_MEMBER_ID }}
+        run: |
+          echo "🔍 Validating environment variables..."
+          
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "❌ GITHUB_TOKEN is not set"
+            exit 1
+          fi
+          
+          if [ -z "$SLACK_BOT_TOKEN" ]; then
+            echo "❌ SLACK_BOT_TOKEN secret is not configured"
+            echo "💡 Please add SLACK_BOT_TOKEN to repository secrets"
+            exit 1
+          fi
+          
+          if [ -z "$SLACK_MEMBER_ID" ]; then
+            echo "❌ SLACK_MEMBER_ID secret is not configured" 
+            echo "💡 Please add SLACK_MEMBER_ID to repository secrets"
+            exit 1
+          fi
+          
+          echo "✅ All environment variables are configured"
+          
+      - name: Run Progress Bot
+        id: bot-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_MEMBER_ID: ${{ secrets.SLACK_MEMBER_ID }}
+        run: |
+          echo "🤖 Starting Human Augmented Analytics Group Progress Bot..."
+          echo "📊 Repository: ${{ github.repository }}"
+          echo "🔄 Trigger: ${{ github.event_name }}"
+          echo "📅 Run time: $(date)"
+          
+          if [ "${{ github.event.inputs.test_mode }}" == "true" ]; then
+            echo "🧪 Running in TEST MODE"
+            python advanced_progress_bot.py --test
+          else
+            echo "🚀 Running in PRODUCTION MODE"
+            python advanced_progress_bot.py
+          fi
+          
+      - name: Report success
+        if: success()
+        run: |
+          echo "✅ Progress bot completed successfully!"
+          echo "📈 Milestone data has been processed and sent to Slack"
+          echo "🕐 Completed at: $(date)"
+          
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "❌ Progress bot failed!"
+          echo "🔍 Check the logs above for error details"
+          echo "💡 Common issues:"
+          echo "   - Missing or invalid Slack tokens"
+          echo "   - Network connectivity issues"
+          echo "   - GitHub API rate limits"
+          echo "   - Python dependency issues"
+          
+      - name: Upload logs (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: bot-failure-logs
+          path: |
+            *.log
+            /tmp/*.log
+          retention-days: 7

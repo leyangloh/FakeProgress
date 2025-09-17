@@ -1,4 +1,4 @@
-# FakeProgress - Advanced GitHub Progress Tracking
+# Human Augmented Analytics Group - Research Projects
 
 <div align="center">
 
@@ -7,143 +7,11 @@
 ![GitHub issues](https://img.shields.io/github/issues/leyangloh/FakeProgress)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/leyangloh/FakeProgress)
 
-*A comprehensive lizard research project tracking X-ray imaging, classification, toepad analysis, and 3D coloring*
+*Advanced research group focusing on human-augmented analytics with projects in X-ray imaging, classification, toepad analysis, and 3D coloring*
 
 [View Milestones](https://github.com/leyangloh/FakeProgress/milestones) • [Report Issues](https://github.com/leyangloh/FakeProgress/issues) • [Contribute](https://github.com/leyangloh/FakeProgress/pulls)
 
 </div>
-
----
-
-## Project Milestones
-
-<div align="center">
-
-### Comprehensive Lizard Research Project
-
-This project encompasses multiple aspects of lizard research including X-ray imaging, taxonomic classification, toepad morphology analysis, and 3D color pattern visualization.
-
-</div>
-
-<!-- Milestone Cards Section -->
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
-
-### **Milestone 1: Lizard X-rays**
-<div align="center">
-
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
-
-</div>
-
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
-
-> X-ray imaging and analysis of lizard specimens for research purposes.
-
-<details>
-<summary><strong>View Details</strong></summary>
-
-- [ ] X-ray equipment setup
-- [ ] Specimen preparation protocols
-- [ ] Image capture procedures
-- [ ] Data processing pipeline
-
-</details>
-
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/1) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+X-rays%22)
-
-</td>
-<td width="50%" valign="top">
-
-### **Milestone 2: Lizard Classification**
-<div align="center">
-
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
-
-</div>
-
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
-
-> Taxonomic classification and species identification of lizard specimens.
-
-<details>
-<summary><strong>View Details</strong></summary>
-
-- [ ] Species identification protocols
-- [ ] Morphological measurements
-- [ ] Database development
-- [ ] Classification algorithms
-
-</details>
-
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/2) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+Classification%22)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### **Milestone 3: Lizard Toepads**
-<div align="center">
-
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
-
-</div>
-
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
-
-> Analysis of lizard toepad morphology and adhesive capabilities.
-
-<details>
-<summary><strong>View Details</strong></summary>
-
-- [ ] Toepad morphology analysis
-- [ ] Adhesion force measurements
-- [ ] Surface texture studies
-- [ ] Comparative analysis
-
-</details>
-
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/3) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%22Lizard+Toepads%22)
-
-</td>
-<td width="50%" valign="top">
-
-### **Milestone 4: 3D Coloring**
-<div align="center">
-
-![Progress](https://img.shields.io/badge/Progress-0%25-red)
-
-</div>
-
-**Status:** Planning  
-**Issues:** 0/0 completed  
-**Timeline:** TBD  
-
-> Three-dimensional color pattern analysis and visualization of lizard specimens.
-
-<details>
-<summary><strong>View Details</strong></summary>
-
-- [ ] 3D scanning protocols
-- [ ] Color pattern mapping
-- [ ] Visualization tools
-- [ ] Pattern analysis algorithms
-
-</details>
-
-[View Milestone](https://github.com/leyangloh/FakeProgress/milestone/4) • [View Issues](https://github.com/leyangloh/FakeProgress/issues?q=milestone%3A%223D+Coloring%22)
-
-</td>
-</tr>
-</table>
 
 ---
 ## Quick Start

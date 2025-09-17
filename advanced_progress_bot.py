@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Advanced Multi-Project GitHub Progress Bot for Slack
+Human Augmented Analytics Group -  Progress Bot
 
-A sophisticated bot that tracks multiple GitHub projects and sends
+A sophisticated bot that tracks multiple research projects and sends
 beautifully formatted progress updates using Slack's Blocks API.
 """
 
@@ -26,12 +26,12 @@ class ProjectConfig:
     color: str = "#36a64f"  # Green
 
 
-class AdvancedProgressBot:
-    """Advanced Slack bot for multi-project progress tracking."""
+class ProgressBot:
+    """ Slack bot for multi-project progress tracking."""
     
     def __init__(self, slack_token: str, github_token: str, user_id: str):
         """
-        Initialize the advanced progress bot.
+        Initialize the  progress bot.
         
         Args:
             slack_token: Slack bot OAuth token
@@ -483,7 +483,7 @@ class AdvancedProgressBot:
 
 
 def main():
-    """Main function to run the advanced progress bot."""
+    """Main function to run the progress bot."""
     
     # Get tokens from environment variables
     BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
@@ -506,8 +506,8 @@ def main():
         print("Please set: export SLACK_MEMBER_ID='your_slack_member_id_here'")
         return
     
-    # Initialize the advanced bot
-    bot = AdvancedProgressBot(
+    # Initialize the bot
+    bot = ProgressBot(
         slack_token=BOT_TOKEN,
         github_token=github_token,
         user_id=SLACK_MEMBER_ID

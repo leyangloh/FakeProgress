@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAAG Research Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --success-green: #059669;
+            --warning-amber: #d97706;
+            --danger-red: #dc2626;
+            --neutral-gray: #6b7280;
+            --light-gray: #f8fafc;
+            --dark-gray: #1f2937;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-gray);
+            min-height: 100vh;
+            color: var(--dark-gray);
+        }
+        
+        .hero-section {
+            background-color: var(--primary-blue);
+            border-radius: 12px;
+            margin: 2rem 0;
+            padding: 4rem 2rem;
+            color: var(--white);
+            text-align: center;
+            border-left: 6px solid var(--accent-teal);
+        }
+        
+        .milestone-card {
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .milestone-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-blue);
+        }
+        
+        .milestone-header {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 1.5rem;
+            border-bottom: 3px solid var(--accent-teal);
+        }
+        
+        .milestone-header.status-completed {
+            background-color: var(--success-green);
+            border-bottom-color: #065f46;
+        }
+        
+        .milestone-header.status-progress {
+            background-color: var(--secondary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+        
+        .milestone-header.status-planning {
+            background-color: var(--warning-amber);
+            border-bottom-color: #92400e;
+        }
+        
+        .progress-bar-custom {
+            height: 6px;
+            border-radius: 3px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--success-green);
+            transition: width 0.4s ease;
+        }
+        
+        .progress-fill.low {
+            background-color: var(--danger-red);
+        }
+        
+        .progress-fill.medium {
+            background-color: var(--warning-amber);
+        }
+        
+        .progress-fill.high {
+            background-color: var(--success-green);
+        }
+        
+        .stats-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .stats-card:hover {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+        
+        .stats-card.primary {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .stats-card.success {
+            border-left: 4px solid var(--success-green);
+        }
+        
+        .stats-card.warning {
+            border-left: 4px solid var(--warning-amber);
+        }
+        
+        .stats-card.info {
+            border-left: 4px solid var(--accent-teal);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        .stat-number.primary { color: var(--primary-blue); }
+        .stat-number.success { color: var(--success-green); }
+        .stat-number.warning { color: var(--warning-amber); }
+        .stat-number.info { color: var(--accent-teal); }
+        
+        .github-btn {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .github-btn:hover {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .github-btn.secondary {
+            background-color: var(--accent-teal);
+        }
+        
+        .github-btn.secondary:hover {
+            background-color: #0e7490;
+        }
+        
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 4px solid var(--accent-teal);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="display-4 mb-4">
+                Human Augmented Analytics Group
+            </h1>
+            <p class="lead mb-4">Research Projects</p>
+
+            <div class="d-flex flex-wrap justify-content-center">
+                <a href="https://github.com/leyangloh/FakeProgress" class="github-btn">
+                    View Repository
+                </a>
+                <a href="https://github.com/leyangloh/FakeProgress/milestones" class="github-btn secondary">
+                    View Milestones
+                </a>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="text-center mb-4" style="display: none;">
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-light mt-2">Fetching live data from GitHub...</p>
+        </div>
+
+        <!-- Statistics Overview -->
+        <div class="row mb-5">
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card primary">
+                    <div class="stat-number primary" id="totalMilestones">4</div>
+                    <div class="text-muted">Total Milestones</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card success">
+                    <div class="stat-number success" id="completedMilestones">0</div>
+                    <div class="text-muted">Completed</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card warning">
+                    <div class="stat-number warning" id="overallProgress">0%</div>
+                    <div class="text-muted">Overall Progress</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card info">
+                    <div class="stat-number info" id="openIssues">0</div>
+                    <div class="text-muted">Open Issues</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Milestone Cards -->
+        <div id="milestonesContainer" class="row">
+            <!-- Milestone cards will be dynamically generated here -->
+            <div class="col-12 text-center">
+                <div class="text-light">
+                    <p>Loading milestones...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p class="mb-2">
+                Human Augmented Analytics Group | <a href="https://humanaugmentedanalyticsgroup.miraheze.org/wiki/Main_Page">Wiki</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // GitHub API configuration
+        const GITHUB_OWNER = 'leyangloh';
+        const GITHUB_REPO = 'FakeProgress';
+        const API_BASE = 'https://api.github.com';
+        
+        // Fetch milestone data from GitHub API
+        async function fetchMilestoneData() {
+            try {
+                // Show loading indicator
+                const loader = document.getElementById('loadingIndicator');
+                if (loader) loader.style.display = 'block';
+                
+                console.log('Fetching milestone data from GitHub...');
+                
+                // Fetch all milestones
+                const response = await fetch(`${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/milestones?state=all`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const milestones = await response.json();
+                console.log('Fetched milestones:', milestones);
+                console.log('Number of milestones found:', milestones.length);
+                
+                // Log detailed milestone information for debugging
+                milestones.forEach((milestone, index) => {
+                    console.log(`Milestone ${index + 1}:`, {
+                        title: milestone.title,
+                        number: milestone.number,
+                        state: milestone.state,
+                        open_issues: milestone.open_issues,
+                        closed_issues: milestone.closed_issues,
+                        total_issues: milestone.open_issues + milestone.closed_issues,
+                        description: milestone.description,
+                        html_url: milestone.html_url
+                    });
+                });
+                
+                // Update the UI with real data
+                generateMilestoneCards(milestones);
+                updateStatistics(milestones);
+                
+            } catch (error) {
+                console.error('Error fetching milestone data:', error);
+                // Fallback to static data on error
+                showErrorMessage();
+            } finally {
+                // Hide loading indicator
+                const loader = document.getElementById('loadingIndicator');
+                if (loader) loader.style.display = 'none';
+            }
+        }
+        
+        function generateMilestoneCards(milestones) {
+            const container = document.getElementById('milestonesContainer');
+            if (!container) return;
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            if (milestones.length === 0) {
+                container.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="text-light">
+                            <p>No milestones found in this repository.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            milestones.forEach(milestone => {
+                const totalIssues = milestone.open_issues + milestone.closed_issues;
+                const percentage = totalIssues > 0 ? Math.round((milestone.closed_issues / totalIssues) * 100) : 0;
+                const status = getStatusText(milestone, totalIssues);
+                const encodedTitle = encodeURIComponent(milestone.title);
+                
+                // Determine status class for styling
+                const statusClass = getStatusClass(milestone, totalIssues);
+                const progressClass = getProgressClass(percentage);
+                
+                const cardHtml = `
+                    <div class="col-lg-6 mb-4">
+                        <div class="milestone-card">
+                            <div class="milestone-header ${statusClass}">
+                                <h4>${milestone.title}</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <p class="text-muted mb-3">${milestone.description || `Project milestone: ${milestone.title}.`}</p>
+                                
+                                <div class="progress-bar-custom">
+                                    <div class="progress-fill ${progressClass}" style="width: ${percentage}%"></div>
+                                </div>
+                                
+                                <div class="row text-center mb-3">
+                                    <div class="col-4">
+                                        <strong>${percentage}%</strong><br>
+                                        <small class="text-muted">Complete</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>${milestone.closed_issues}/${totalIssues}</strong><br>
+                                        <small class="text-muted">Issues</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>${status}</strong><br>
+                                        <small class="text-muted">Status</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <a href="${milestone.html_url}" class="btn btn-outline-primary btn-sm" target="_blank">
+                                        View Milestone
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+        
+        
+        function updateStatistics(milestones) {
+            const totalMilestones = milestones.length;
+            const completedMilestones = milestones.filter(m => {
+                const total = m.open_issues + m.closed_issues;
+                return total > 0 && m.closed_issues === total;
+            }).length;
+            
+            const totalIssues = milestones.reduce((sum, m) => sum + m.open_issues + m.closed_issues, 0);
+            const closedIssues = milestones.reduce((sum, m) => sum + m.closed_issues, 0);
+            const overallProgress = totalIssues > 0 ? Math.round((closedIssues / totalIssues) * 100) : 0;
+            const openIssues = totalIssues - closedIssues;
+            
+            // Update statistics cards
+            document.getElementById('totalMilestones').textContent = totalMilestones;
+            document.getElementById('completedMilestones').textContent = completedMilestones;
+            document.getElementById('overallProgress').textContent = `${overallProgress}%`;
+            document.getElementById('openIssues').textContent = openIssues;
+        }
+        
+        function getStatusText(milestone, totalIssues) {
+            if (milestone.state === 'closed') return 'Completed';
+            if (totalIssues === 0) return 'Not Started';
+            if (milestone.open_issues > 0) return 'In Progress';
+            return 'Planning';
+        }
+        
+        function getStatusClass(milestone, totalIssues) {
+            if (milestone.state === 'closed') return 'status-completed';
+            if (totalIssues === 0) return '';
+            if (milestone.open_issues > 0) return 'status-progress';
+            return 'status-planning';
+        }
+        
+        function getProgressClass(percentage) {
+            if (percentage >= 75) return 'high';
+            if (percentage >= 25) return 'medium';
+            return 'low';
+        }
+        
+        function showErrorMessage() {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'alert alert-warning mt-3';
+                errorDiv.innerHTML = 'Unable to fetch live data from GitHub API.';
+                heroSection.appendChild(errorDiv);
+            }
+            
+            // Show error in milestones container
+            const container = document.getElementById('milestonesContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="text-light">
+                            <p>Unable to load milestones. Please check your internet connection.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Fetch data when page loads
+        document.addEventListener('DOMContentLoaded', fetchMilestoneData);
+        
+        // Auto-refresh every 5 minutes
+        setInterval(fetchMilestoneData, 300000);
+        
+        // Debug function - you can call this in browser console: debugMilestones()
+        window.debugMilestones = async function() {
+            try {
+                console.log('=== DEBUG: Fetching milestone data ===');
+                const response = await fetch(`${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/milestones?state=all&per_page=100`);
+                const milestones = await response.json();
+                
+                console.log('API Response:', response);
+                console.log('Raw milestones data:', milestones);
+                
+                if (milestones.length === 0) {
+                    console.log('❌ No milestones found. This could mean:');
+                    console.log('1. No milestones have been created in the repository');
+                    console.log('2. Issues are using LABELS instead of MILESTONES');
+                    console.log('3. API permissions issue');
+                    
+                    // Also fetch labels to see if that's what's being used
+                    const labelsResponse = await fetch(`${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/labels`);
+                    const labels = await labelsResponse.json();
+                    console.log('Repository labels found:', labels.map(l => l.name));
+                }
+                
+                return milestones;
+            } catch (error) {
+                console.error('Debug fetch failed:', error);
+            }
+        };
+    </script>
+</body>
+</html>
